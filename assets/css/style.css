@@ -18,6 +18,18 @@
   color: #2760E5;
 }
 
+.FIZZ {
+  color: #cb0c9f;
+}
+
+.BUZZ {
+  color: #17c1e8;
+}
+
+.FIZZBUZZ {
+  color: #ea0606;
+}
+
 code[class*="language-"],
 pre[class*="language-"] {
   white-space: pre-wrap;
