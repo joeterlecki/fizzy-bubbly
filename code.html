@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Graduate&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 
   <!-- Icons -->
   <link href="./assets/css/nucleo-icons.css" rel="stylesheet">
@@ -86,6 +86,77 @@
         <div class="col-lg-5">
           <h3 class="text-gradient text-danger mb-0 mt-2"><span class="brand-font">Fizzy Bubbly</span></h3>
           <h3>The Code</h3>
+          <p>The Javascript Starts with the function <span class="text-danger text-gradient">getNumbers</span> which
+            retrieves the values from the web form using <span
+              class="text-danger text-gradient">documnet.getElementById</span></p>
+          <p>To ensure and validate the values are integers, the inputs are parsed with <span
+              class="text-danger text-gradient">parseInt</span> and following with a conditional to check value type
+            using <span class="text-danger text-gradient">Number.isInteger</span></p>
+          <p>If the input returns TRUE the numbers are generated, Fizz Buzz numbers are calculated, and then displayed
+            using the functions <span class="text-danger text-gradient"> generateNumberArray</span>, <span
+              class="text-danger text-gradient">calculateFizzBuzz</span> and <span
+              class="text-danger text-gradient">displayFizzBuzzNumbers</span></p>
+          <br>
+          <br>
+          <br>
+
+          <p>The <span class="text-danger text-gradient">generateNumberArray</span> functions takes takes in both values
+            and
+            generates values for an empty list. The numbers are iterated over and pushed to the empty list which is then
+            returned </p>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <p>The <span class="text-danger text-gradient">calculateFizzBuzz</span> function takes the numbers and
+            iterates over each one to
+            evaluate if they meet conditions to
+            equal <span class="text-gradient text-danger">"FIZZ", "BUZZ", or "FIZZBUZZ"</span>.If the number is
+            evaluated as any of the buzz words, it is pushed
+            into the array inplace of its numeric value. Once complete the newly generated array is returned.</p>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+
+          <p>To display the numbers to our app with <span
+              class="text-danger text-gradient">displayFizzBuzzNumbers</span> the
+            function takes the fizz buzzed numbers array returned from the previous funtion. These numbers are then put
+            through
+            another loop that uses a blank TEMPLATE HTML tag to build our table</p>
+          <p>To Build the table, the fucntion loops over the length of our fizz buzz array by <span
+              class="text-danger text-gradient">adding 5</span> to the value
+            after each iteration.</p>
+
+          <p>Using these blocks of 5, we <span class="text-danger text-gradient">import the tableTemplate node</span>
+            from our HTML, create a variable for our columns
+            and add our content.</p>
+
+          <p>While this is occuring we are able to emphasize the FIZZBUZZ ouput by <span
+              class="text-danger text-gradient">dynamically
+              adding a
+              class with our CSS color</span> that matches the content of the Value. For example, if the Value FIZZBUZZ,
+            then
+            the
+            FIZZBUZZ color CSS class will be added to the table data.</p>
+          </p>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <p>Once all rows have been generated, they are appended to the table body as a row</p>
         </div>
         <div class="col-lg-7 mt-lg-0 mt-5 ps-lg-0 ps-0">
           <div class="card d-flex justify-content-center p-4 shadow-lg">
