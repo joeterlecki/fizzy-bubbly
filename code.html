@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>APP NAME: SLOGAN</title>
+  <title>Fizzy Bubbly: Fizz Your 3s and Buzz Your 5s</title>
 
   <!-- Favicon -->
   <link href="/assets/img/brand/favicon.png" rel="icon" type="image/png">
@@ -35,7 +35,7 @@
     <div class="container">
       <a class="navbar-brand" href="./index.html" rel="tooltip" title="Place Holder" data-placement="bottom"
         target="_blank">
-        <span class="brand-font">APP NAME: SLOGAN</span>
+        <span class="brand-font">Fizzy Bubbly: Fizz Your 3s and Buzz Your 5s</span>
       </a>
       <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
         data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,7 +66,7 @@
           </li>
           <li class="nav-item mx-2">
             <a class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" href="#"
-              target="_blank">
+              target="https://github.com/joeterlecki/fizzy-bubbly">
               Git Repo
             </a>
           </li>
@@ -84,14 +84,83 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-5">
-          <h3 class="text-gradient text-primary mb-0 mt-2"><span class="brand-font">App Name</span></h3>
+          <h3 class="text-gradient text-danger mb-0 mt-2"><span class="brand-font">Fizzy Bubbly</span></h3>
           <h3>The Code</h3>
         </div>
         <div class="col-lg-7 mt-lg-0 mt-5 ps-lg-0 ps-0">
           <div class="card d-flex justify-content-center p-4 shadow-lg">
             <pre class="line-numbers"><code class="language-javascript">
-              function helloWorld() {
-                alert("hello world");
+              function getNumbers() {
+                let startNumber = document.getElementById("startNumber").value;
+                let endNumber = document.getElementById("endNumber").value;
+              
+                startNumber = parseInt(startNumber);
+                endNumber = parseInt(endNumber);
+              
+                if (Number.isInteger(startNumber) && Number.isInteger(endNumber)) {
+                  let numbers = generateNumberArray(startNumber, endNumber);
+              
+                  let fizzBuzzNumbers = calculateFizzBuzz(numbers);
+              
+                  displayFizzBuzzNumbers(fizzBuzzNumbers);
+                }
+              
+              }
+              
+              function generateNumberArray(startNumber, endNumber) {
+                let numberArray = [];
+              
+                for (let number = startNumber; number <= endNumber; number++) {
+                  numberArray.push(number);
+                }
+              
+                return numberArray;
+              }
+              
+              function calculateFizzBuzz(numberArray) {
+                fizzBuzzArray = [];
+                for (let number = 0; number < numberArray.length; number++) {
+                  if (number % 3 == 0 && number % 5 == 0) {
+                    fizzBuzzArray.push('FIZZBUZZ');
+                  } else if (number % 3 == 0) {
+                    fizzBuzzArray.push('FIZZ');
+                  } else if (number % 5 == 0) {
+                    fizzBuzzArray.push('BUZZ');
+                  } else {
+                    fizzBuzzArray.push(number.toString());
+                  }
+                }
+              
+                return fizzBuzzArray;
+              }
+              
+              function displayFizzBuzzNumbers(fizzBuzzArray) {
+                let tableBody = document.getElementById("results");
+                let tableTemplate = document.getElementById("fizzBuzzTemplate");
+              
+                tableBody.innerHTML = "";
+              
+                for (let number = 0; number < fizzBuzzArray.length; number += 5) {
+                  let tableRow = document.importNode(tableTemplate.content, true);
+              
+                  let rowColumns = tableRow.querySelectorAll("td");
+                  rowColumns[0].classList.add(fizzBuzzArray[number]);
+                  rowColumns[0].textContent = fizzBuzzArray[number];
+              
+                  rowColumns[1].classList.add(fizzBuzzArray[number + 1]);
+                  rowColumns[1].textContent = fizzBuzzArray[number + 1];
+              
+                  rowColumns[2].classList.add(fizzBuzzArray[number + 2]);
+                  rowColumns[2].textContent = fizzBuzzArray[number + 2];
+              
+                  rowColumns[3].classList.add(fizzBuzzArray[number + 3]);
+                  rowColumns[3].textContent = fizzBuzzArray[number + 3];
+              
+                  rowColumns[4].classList.add(fizzBuzzArray[number + 4]);
+                  rowColumns[4].textContent = fizzBuzzArray[number + 4];
+              
+                  tableBody.appendChild(tableRow)
+                }
               }
             </code></pre>
           </div>
@@ -100,7 +169,7 @@
     </div>
     </div>
   </section>
-  <footer class="footer py-10">
+  <footer class="footer py-5">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mb-4 mx-auto text-center">

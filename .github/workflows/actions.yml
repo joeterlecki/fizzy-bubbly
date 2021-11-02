@@ -4,8 +4,8 @@ on:
     branches:
       - 'master'
 env:
-  BUCKET_NAME: <BUCKET_NAME>
-  CF_DISTRO_ID: <DISTRO ID>
+  BUCKET_NAME: fizzybubbly.joeterlecki.io
+  CF_DISTRO_ID: E9V35T2JSKV5T
 jobs:
   deploy: 
     runs-on: ubuntu-latest
