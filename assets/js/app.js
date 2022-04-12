@@ -6,67 +6,44 @@ function getNumbers() {
   endNumber = parseInt(endNumber);
 
   if (Number.isInteger(startNumber) && Number.isInteger(endNumber)) {
-    let numbers = generateNumberArray(startNumber, endNumber);
-
-    let fizzBuzzNumbers = calculateFizzBuzz(numbers);
-
-    displayFizzBuzzNumbers(fizzBuzzNumbers);
+    displayFizzBuzzNumbers(startNumber, endNumber);
   }
 
 }
 
-function generateNumberArray(startNumber, endNumber) {
-  let numberArray = [];
+function displayFizzBuzzNumbers(startNumber, endNumber) {
+  const url = `https://api.joeterlecki.io/fizzy-bubbly?start_number=${startNumber}&end_number=${endNumber}`
+  fetch(url)
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      let fizzBuzzArray = data["number_list"];
+      let tableBody = document.getElementById("results");
+      let tableTemplate = document.getElementById("fizzBuzzTemplate");
 
-  for (let number = startNumber; number <= endNumber; number++) {
-    numberArray.push(number);
-  }
+      tableBody.innerHTML = "";
 
-  return numberArray;
-}
+      for (let number = 0; number < fizzBuzzArray.length; number += 5) {
+        let tableRow = document.importNode(tableTemplate.content, true);
 
-function calculateFizzBuzz(numberArray) {
-  fizzBuzzArray = [];
-  for (let number = 0; number < numberArray.length; number++) {
-    if (number % 3 == 0 && number % 5 == 0) {
-      fizzBuzzArray.push('FIZZBUZZ');
-    } else if (number % 3 == 0) {
-      fizzBuzzArray.push('FIZZ');
-    } else if (number % 5 == 0) {
-      fizzBuzzArray.push('BUZZ');
-    } else {
-      fizzBuzzArray.push(number.toString());
-    }
-  }
+        let rowColumns = tableRow.querySelectorAll("td");
+        rowColumns[0].classList.add(fizzBuzzArray[number]);
+        rowColumns[0].textContent = fizzBuzzArray[number];
 
-  return fizzBuzzArray;
-}
+        rowColumns[1].classList.add(fizzBuzzArray[number + 1]);
+        rowColumns[1].textContent = fizzBuzzArray[number + 1];
 
-function displayFizzBuzzNumbers(fizzBuzzArray) {
-  let tableBody = document.getElementById("results");
-  let tableTemplate = document.getElementById("fizzBuzzTemplate");
+        rowColumns[2].classList.add(fizzBuzzArray[number + 2]);
+        rowColumns[2].textContent = fizzBuzzArray[number + 2];
 
-  tableBody.innerHTML = "";
+        rowColumns[3].classList.add(fizzBuzzArray[number + 3]);
+        rowColumns[3].textContent = fizzBuzzArray[number + 3];
 
-  for (let number = 0; number < fizzBuzzArray.length; number += 5) {
-    let tableRow = document.importNode(tableTemplate.content, true);
+        rowColumns[4].classList.add(fizzBuzzArray[number + 4]);
+        rowColumns[4].textContent = fizzBuzzArray[number + 4];
 
-    let rowColumns = tableRow.querySelectorAll("td");
-    rowColumns[0].classList.add(fizzBuzzArray[number]);
-    rowColumns[0].textContent = fizzBuzzArray[number];
-
-    rowColumns[1].classList.add(fizzBuzzArray[number + 1]);
-    rowColumns[1].textContent = fizzBuzzArray[number + 1];
-
-    rowColumns[2].classList.add(fizzBuzzArray[number + 2]);
-    rowColumns[2].textContent = fizzBuzzArray[number + 2];
-
-    rowColumns[3].classList.add(fizzBuzzArray[number + 3]);
-    rowColumns[3].textContent = fizzBuzzArray[number + 3];
-
-    rowColumns[4].classList.add(fizzBuzzArray[number + 4]);
-    rowColumns[4].textContent = fizzBuzzArray[number + 4];
-
-    tableBody.appendChild(tableRow)
-  }
+        tableBody.appendChild(tableRow)
+      }
+    })
 }
