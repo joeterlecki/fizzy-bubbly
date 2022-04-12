@@ -17,20 +17,21 @@ def calculate_fiz_buzz(numbers):
             fizz_buzz_list.append('BUZZ')
         else:
             fizz_buzz_list.append(str(number))
+
     return fizz_buzz_list
 
 
 def format_response(response_data):
-    numbers_response = {'response': response_data}
+    numbers_response = {}
+    numbers_response['number_list'] = response_data
 
-    request_response = {'statusCode': 200,
-                        'headers': {
-                            'Content-Type': 'application/json',
-                            'Access-Control-Allow-Origin': '*'
-                        },
-                        'body': numbers_response
-                        }
-
+    request_response = {}
+    request_response['statusCode'] = 200
+    request_response['headers'] = {}
+    request_response['headers']['Content-Type'] = 'application/json'
+    request_response['headers']['Access-Control-Allow-Origin'] = '*'
+    request_response['body'] = json.dumps(numbers_response)
+    
     return request_response
 
 
