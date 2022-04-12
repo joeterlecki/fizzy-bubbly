@@ -92,6 +92,15 @@
         <div class="col-lg-5">
           <h3 class="text-gradient text-primary mb-0 mt-2"><span class="brand-font">Fizzy Bubbly</span></h3>
           <h3>The Python Code</h3>
+          <p>Since the Python code base is deployed in an AWS Lambda Function the format and organization changes
+            slightly
+            from a traditional Python application. Everything starts with the import json package to handle the event
+            request from the upstream API Gateway.
+          </p>
+          <p>First we need a function to generate a list of numbers from the request query string. This list will then
+            be
+            returned for further processing. This function just used a simple for loop and the range function to append
+            the values between the start_number and end_number for our newly created number_list.</p>
 
         </div>
         <div class="col-lg-7 mt-lg-0 mt-5 ps-lg-0 ps-0">
@@ -99,6 +108,10 @@
             <pre class="line-numbers"><code class="language-python">
               # Extra Whitespace Added to follow description column.
               import json
+
+
+              
+              
 
               def generate_number_list(start_number, end_number):
                   number_list = []

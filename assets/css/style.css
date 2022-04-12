@@ -18,6 +18,10 @@
   color: #583E80;
 }
 
+.FIZZBUZZ {
+  color: #ea0606;
+}
+
 language-css .token.string,
 .style .token.string,
 .token.entity,
