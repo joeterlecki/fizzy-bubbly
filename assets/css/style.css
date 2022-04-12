@@ -18,6 +18,15 @@
   color: #583E80;
 }
 
+language-css .token.string,
+.style .token.string,
+.token.entity,
+.token.operator,
+.token.url {
+  color: #9a6e3a;
+  background: none;
+}
+
 code[class*="language-"],
 pre[class*="language-"] {
   white-space: pre-wrap;
